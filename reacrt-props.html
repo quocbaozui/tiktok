@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function PostItem (props) {
+
+      console.log(props.title);
+
+      return (
+        <div className='post-item'>
+          <img className='nude-image'
+            src={props.image}
+          />
+          <h2 className='post-title'>{props.title}</h2>
+          <p className='post-desc'>{props.description}</p>
+          <p className='post-published'>{props.published}</p>
+        </div>
+      )
+    }
+
+    function App () {
+
+      // console.log(<PostItem title='Title test' />)
+
+      return (
+        <div id="wrapper">
+          <PostItem
+            title='Hinh nude'
+            image='https://voz.vn/attachments/129866862_2477335985893346_5394333650445845148_o-jpg.318901/'
+            description='Hình nude em da trắng'
+            published='Post 3 days ago'
+          />
+          <PostItem
+            title='Hinh nude.'
+            image='https://voz.vn/attachments/129866862_2477335985893346_5394333650445845148_o-jpg.318901/'
+            description='Hình nude em da trắng.'
+            published='Post 3 days ago.'
+          />
+          <PostItem
+            title='Hinh nude 3'
+            image='https://voz.vn/attachments/129866862_2477335985893346_5394333650445845148_o-jpg.318901/'
+            description='Hình nude em da trắng 3'
+            published='Post 3 days ago 3'
+          />
+        </div>
+      )
+    }
+
+    const container = document.getElementById('root')
+    const root = ReactDOM.createRoot(container)
+    root.render(<App />)
+
+
+    // bai tap
+    
+  </script>
+</body>
+</html>

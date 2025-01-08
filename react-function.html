@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React function</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+<body>
+  <div id="app"></div>
+  <div id="nude"></div>
+  <div id="haha"></div>
+
+  <script type="text/babel">
+    // nguyeen tắc đặt trên function component trong react là phải viết hoa chữ cái đầu
+    function Header() {
+      return (
+        <div className="header">Header</div>
+      )
+    }
+
+    function Content() {
+      return (
+        // hàm return chỉ có thể trả về một phần tử cha. 
+        // Nên phải bọc chúng trong một phần tử cha
+        <React.Fragment>
+          <div className="content">Quốc Bảo zui</div>
+          <div className="content">Quốc Bảo zui</div>
+        </React.Fragment>
+
+      )
+    }
+
+    class Footer extends React.Component {
+      render() {
+        return (
+          <div className="content">Footer</div>
+        )
+      }
+    }
+    
+    const app = (
+      <div className='post-list'>
+        {/* cách gọi hàm function nếu không có children ở trong */}
+        <Header />
+        <Header />
+        <Header />
+        <Header />
+        <Content />
+        <Footer />
+
+        {/* cách gọi hàm function nếu có children ở trong */}
+        {/* <Header>Viết children trong này</Header> */}
+      </div>
+    )
+
+    // render 
+    const container = document.querySelector('#app');
+    let root = ReactDOM.createRoot(container);
+    root.render(app);
+
+
+    
+    // baif tap
+    const { useState } = React;
+    function PostItem () {
+      // Khởi tạo state cho 'src' của hình ảnh
+      const [imageSrc, setImageSrc] = useState("https://voz.vn/attachments/129866862_2477335985893346_5394333650445845148_o-jpg.318901/");
+
+      const img = {
+        width: '300px',
+        height: '300px',
+        objectFit: 'cover',
+        borderRadius: '10px',
+      };
+
+      // Định nghĩa hai hình ảnh
+      const defaultImage = "https://voz.vn/attachments/129866862_2477335985893346_5394333650445845148_o-jpg.318901/";
+      const changedImage = "https://studiochupanhdep.com/Upload/Images/Album/anh-nude.jpg";
+
+      // Hàm để thay đổi 'src' khi cần
+      /*const changeImageSrc = () => {
+        setImageSrc("https://studiochupanhdep.com/Upload/Images/Album/anh-nude.jpg");
+      };
+      */
+
+      // Hàm để thay đổi 'src' hình ảnh mỗi lần nhấn nút
+      const toggleImage = () => {
+        setImageSrc(prevImage => 
+          prevImage === defaultImage ? changedImage : defaultImage
+        );
+      };
+
+      return (
+        <React.Fragment>
+          <div className='post-item'>
+            <img className='nude-image'
+              src={imageSrc}
+              style={img}
+            />
+            <h2 className='post-title'>Hình nude</h2>
+            <p className='post-desc'>Hình nude em da trắng</p>
+            <p className='post-published'>Post 3 days ago</p>
+
+            {/* Button để thay đổi hình ảnh */}
+            <button onClick={toggleImage}>Thay đổi hình ảnh</button>
+          </div>
+        </React.Fragment>
+      )
+    }
+    const post = (
+      <div className='post-list'>
+        <PostItem />
+      </div>
+    )
+
+    const bt = document.querySelector('#nude');
+    root = ReactDOM.createRoot(bt);
+    root.render(post);
+  </script>
+</body>
+</html>

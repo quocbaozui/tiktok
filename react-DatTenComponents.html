@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <link rel="stylesheet" href="./haha.css">
+</head>
+<body>
+
+  <div id="root"></div>
+  
+  <script type="text/babel">
+    
+
+    const Form = {
+      Input() {
+        return <input />
+      },
+      Checkbox() {
+        return <input className='haha' type="checkbox" />
+      }
+    }
+
+    function App() {
+      const type = 'Checkbox'; 
+
+      const Component = Form[type]
+
+
+      return(
+        <React.Fragment>
+          <Component />
+          <Form.Checkbox />
+        </React.Fragment>
+      )
+    }
+
+
+    function Button({ title, onClick, href}) {
+      let Component = 'button';
+
+      const props = {}
+
+      if(onClick) {
+        props.onClick=onClick
+        props.className='onClick'
+      }
+
+      if(href) {
+        Component = 'a'
+        props.href=href
+        props.className='href'
+      }
+
+      return(
+        // khong dùng spread
+        /*
+        <div>
+          <Component onClick={props.onClick} href={props.href}>{title}</Component>
+        </div>
+        */
+
+        // dùng spread
+        <div className='fra'>
+          <Component {...props}>{title}</Component>
+        </div>
+      ) 
+    }
+
+    
+    function App1() {
+      return(
+       <Button 
+        title='Click me!'
+        //href='https://chatgpt.com/'
+        onClick={() => 
+          console.log(Math.random())
+        }
+       />
+      )
+    }
+
+    function App2() {
+      let firstAccess = true;
+
+      // cachs cuar minhf :)))
+      /*
+      const haha = firstAccess ? console.log('Welcome') : console.log('Welcome back');
+
+      return(
+        <div>
+          <p>{firstAccess}</p>
+        </div>
+      )
+      */
+
+      return(
+        // logic chỗ này là dùng toán tử && 
+        //chạy thẻ h1 nếu firstAccess=true và ngược lại
+        <div>
+          {firstAccess && <h1>Welcome back</h1>}
+        </div>
+      )
+    }
+
+    function App3({ title, content}) {
+      return(
+        <div>
+          {/* 
+            nếu truyền vào props title thì sẽ hiện title và ngược lại
+            nếu có cả title và content thì sẽ hiện title k hiện content
+            nếu không truyền content và title thì sẽ trả về undefined
+          */}
+          <h1>{title || content}</h1>
+        </div>
+      ) 
+    }
+    
+    const container = document.querySelector('#root')
+    const root = ReactDOM.createRoot(container)
+    root.render(<App1 />)
+
+
+  </script>
+</body>
+</html>

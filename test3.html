@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    // DOM
+    // bai1
+    const h1_DOM = document.createElement('h1');
+    h1_DOM.innerText = 'Hello guys!';
+    h1_DOM.title = 'Hello';
+    h1_DOM.className = 'heading';
+    const root = document.querySelector('#root')
+    document.body.appendChild(h1_DOM);
+
+    // bai2
+    const ul_DOM = document.createElement('ul');
+    ul_DOM.id = 'ul-id';
+    ul_DOM.style = 'color: red';
+
+    const li_DOM1 = document.createElement('li');
+    li_DOM1.innerText = 'Javascript';
+
+    const li_DOM2 = document.createElement('li');
+    li_DOM2.innerText = 'ReactJS';
+
+    ul_DOM.appendChild(li_DOM1);
+    ul_DOM.appendChild(li_DOM2);
+
+    document.body.appendChild(ul_DOM);
+
+
+
+    //React
+
+    // React.createElement(type, props, children)
+
+    // bai1
+    const h1_react = React.createElement('h1', {
+      title: Hello,
+      className: 'heading',
+    }, 'Hello guys!')
+
+    //bai2
+    const ul_React = React.createElement(
+      'ul', 
+      {
+        id: 'ul-id',
+        style: 'color: red',
+      },
+      React.createElement('li', null, 'Javascript'),
+      React.createElement('li', null, 'ReactJS'),
+    );
+
+    console.log(ul_React)
+  </script>
+</body>
+</html>

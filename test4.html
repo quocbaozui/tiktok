@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+</head>
+<body>
+  <div id="root1"></div>
+  <div id="root2"></div>
+  <div id="root3"></div>
+  <script>
+    // bai 3
+    const div_React = React.createElement(
+      'div', 
+      {
+        className: 'post-item'
+      }, 
+      React.createElement(
+        'h2', 
+        {
+          title: 'Học React tại F8'
+        }, 
+        'Học ReactJS'
+      ),
+      React.createElement(
+        'p',
+        null, 
+        'Học ReactJS từ cơ bản tới nâng cao'
+      )
+    )
+
+    // Get root element
+    const container3 = document.getElementById('root3')
+
+    // React@17
+    // React-DOM -> render UI
+    //ReactDOM.render(div_React, root3)
+
+    //React@18
+    // truyền vào root element cho phương thức createRoot()
+    const root3 = ReactDOM.createRoot(container3)
+    // truyền react element vào phương thức render()
+    root3.render(div_React)
+
+
+    // bai 1
+    const heading = React.createElement(
+      'h1',
+      {
+        title: 'Hello',
+        className: 'heading'
+      }, 'Hello guys'
+    )
+
+    // get root element
+    const container1 = document.querySelector('#root1')
+
+    // React@17
+    //ReactDOM.render(heading,root1)
+
+    // React@18
+    // truyền vào root element cho phương thức createRoot()
+    const root1 = ReactDOM.createRoot(container1)
+    // truyền react element vào phương thức render()
+    root1.render(heading)
+
+    // bai 2
+    const ul = React.createElement(
+      'ul',
+      null,
+      React.createElement(
+        'li',
+        null,
+        'Javascript'
+      ), 
+      React.createElement(
+        'li',
+        null,
+        'ReactJS'
+      )
+    )
+
+    // get root element
+    const container2 = document.getElementById('root2');
+    
+    //React@17
+    //ReactDOM.render(ul,root2)
+
+    // React@18
+    // truyền vào root element cho phương thức createRoot()
+    const root2 = ReactDOM.createRoot(container2);
+    // truyền react element vào phương thức render()
+    root2.render(ul);
+  </script>
+</body>
+</html>

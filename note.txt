@@ -1,0 +1,3 @@
+- react element là thành phần nhỏ nhất trong React
+- node là thành phần nhỏ nhất trong DOM
+

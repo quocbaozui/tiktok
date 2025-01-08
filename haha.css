@@ -1,0 +1,20 @@
+.href {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: blue;
+  color: red;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.onClick {
+  color: red;
+  border: 1px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.fra {
+  margin-top: 100px;
+}
