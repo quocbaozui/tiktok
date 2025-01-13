@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    // ...inputProps chỗ parameter là dùng Rest
+    function Input({ label, ...inputProps}) {
+      return(
+        <div>
+          <label>{label}</label>
+          <input {...inputProps}/> {/*chỗ này rải vào dùng Spread*/}
+        </div>
+      )
+    }
+
+    function App() {
+      return (
+        <Input
+          label="Full name"
+          placeholder="Enter name..."
+          type="radio"
+          title="day la input" 
+        />
+      )
+    }
+
+
+    function List({data, children}) {
+      return (
+        <div>
+          <ul>{data.map((...props) => children(...props))}</ul>
+        </div>
+      )
+    }
+
+    function App1() {
+      const cars = ['BMW', 'honda', 'yamaha']
+      return (
+        <div>
+          <List data={cars}>
+            {(item, index) => <li>{item}</li>}
+          </List>
+        </div>
+       
+      )
+    }
+
+
+    const container = document.querySelector('#root')
+    const root = ReactDOM.createRoot(container)
+    root.render(<App1 />)
+  </script>
+</body>
+</html>
