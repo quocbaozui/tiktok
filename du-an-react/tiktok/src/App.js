@@ -1,16 +1,40 @@
-import Content from "./Content"
-import { useState } from 'react'
+import { useRef } from "react"
+import { useStore, actions } from "./Components/store"
 
-// Mounted / Unmounted
 
 function App() {
-  const [show, setShow] = useState(false)
+  const [state, dispatch] = useStore()
+  const {todos, todoInput} = state
+  
+  const refState = useRef()
+
+  const handleSubmit = () => {
+    dispatch(actions.addTodo(todoInput))
+    dispatch(actions.setTodoInput(""))
+    console.log(refState.current.focus()) 
+  }
+
   return (
     <div>
-      <button onClick={() => setShow(!show)}>Toggle</button>
-      {show && <Content />}
+      <p>Hello World</p>
+      <input 
+        value={todoInput}
+        ref = {refState}
+        onChange={e => {
+          dispatch(actions.setTodoInput(e.target.value))
+        }}
+      />
+      <button onClick={handleSubmit}>Add</button>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}
+            <span onClick={() => dispatch(actions.deleteTodo(index))}>&times;</span>
+          </li>
+        ))}
+      </ul>
     </div>
   )
+  
 }
 
-export default App;
+export default App
