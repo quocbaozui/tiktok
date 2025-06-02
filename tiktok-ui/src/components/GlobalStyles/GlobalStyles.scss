@@ -1,5 +1,6 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,100..700&display=swap');
 
 :root {
   --primary: red;
@@ -22,7 +23,7 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IMB Plex sant' 'Montserrat', sans-serif;
   font-size: 19px;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
