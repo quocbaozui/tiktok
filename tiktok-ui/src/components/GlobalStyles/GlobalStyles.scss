@@ -6,6 +6,7 @@
   --primary: red;
   --black: #000;
   --text-color: #333;
+  --white: #fff;
 
   // Default layout
   --default-layout-header-height: 60px;
@@ -23,7 +24,7 @@ html {
 }
 
 body {
-  font-family: 'IMB Plex sant' 'Montserrat', sans-serif;
+  font-family: 'IMB Plex sant', 'Montserrat', sans-serif;
   font-size: 19px;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
