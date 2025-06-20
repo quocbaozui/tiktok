@@ -1,0 +1,9 @@
+.wrapper {
+  overflow: hidden;
+
+  &.user {
+    width: 20px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}

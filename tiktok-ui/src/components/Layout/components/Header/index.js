@@ -7,14 +7,11 @@ import 'tippy.js/dist/tippy.css';
 import {
   faCircleQuestion,
   faCircleXmark,
-  faCloudUpload,
-  faCoins,
   faEarthAsia,
   faEllipsisVertical,
   faGear,
   faKeyboard,
   faMagnifyingGlass,
-  faMessage,
   faRightToBracket,
   faSpinner,
   faUser,
@@ -26,6 +23,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images/';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { UploadIcon, MessageIcon, GetCoinIcon, SearchIcon, InboxIcon } from '~/components/Icons';
+import Image from '~/components/Images';
 
 // giúp viết được className theo kiểu post-item
 const cx = classNames.bind(styles);
@@ -105,7 +104,7 @@ function Header() {
       to: '@hieuthuhai',
     },
     {
-      icon: <FontAwesomeIcon icon={faCoins} />,
+      icon: <GetCoinIcon className={'get_coin'} />,
       title: 'Get coins',
       to: '/coin',
     },
@@ -127,8 +126,7 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         {/* Logo tiktok */}
-        <img src={images.logo} alt="Tiktok" />
-
+        <img src={images.logo} alt="Logo" />
         {/* Ô tìm kiếm  */}
         <HeadlessTippy
           interactive
@@ -153,7 +151,7 @@ function Header() {
             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
             <button className={cx('search-btn')}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <SearchIcon />
             </button>
           </div>
         </HeadlessTippy>
@@ -162,16 +160,23 @@ function Header() {
         <div className={cx('action')}>
           {currentUser ? (
             <div className={cx('current-user')}>
-              <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
+              <Tippy delay={[0, 50]} content="Upload video" placement="bottom">
                 {/* Các action khi đã đăng nhập vào */}
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faCloudUpload} />
+                  <UploadIcon />
                 </button>
               </Tippy>
 
-              <Tippy delay={[0, 200]} content="Message" placement="bottom">
+              <Tippy delay={[0, 50]} content="Message" placement="bottom">
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faMessage} />
+                  <MessageIcon />
+                </button>
+              </Tippy>
+
+              <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <InboxIcon />
+                  <span className={cx('badge')}>12</span>
                 </button>
               </Tippy>
             </div>
@@ -185,10 +190,11 @@ function Header() {
 
           <Menu items={userMenu ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
-              <img
+              <Image
                 className={cx('user-avatar')}
-                src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/86ed746e1e728f509edf45d49e8fa2c2~tplv-tiktokx-cropcenter:300:300.webp?dr=14577&refresh_token=8aab7023&x-expires=1749002400&x-signature=rry93rb5NgC80iGnlZzR%2BwbQcF4%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=c1333099&idc=my"
-                alt="Hieu thu hai"
+                src="https://th.bing.com/th/id/OIP.GHcIt6VKAVpiJcofBCfnygHaGS?rs=1&pid=ImgDetMain"
+                alt="Hieu"
+                fallback="https://fullstack.edu.vn/assets/f8-icon-lV2rGpF0.png"
               />
             ) : (
               <button className={cx('more-btn')}>

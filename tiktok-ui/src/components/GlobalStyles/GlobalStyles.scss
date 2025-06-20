@@ -1,6 +1,4 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,100..700&display=swap');
 
 :root {
   --primary: red;
@@ -25,7 +23,7 @@ html {
 }
 
 body {
-  font-family: 'IMB Plex sant', 'Montserrat', sans-serif;
+  font-family: 'TikTokFont', sans-serif;
   font-size: 19px;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
@@ -42,6 +40,28 @@ input,
 a[href] {
   color: var(--text-color);
   text-decoration: none;
+}
+
+// Nhúng font
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Bold.woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Regular.woff2');
+  font-weight: 500;
+}
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Semibold.woff2');
+  font-weight: 600;
 }
 
 // Custom tippy tooltip
