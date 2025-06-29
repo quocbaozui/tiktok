@@ -8,6 +8,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import styles from './Search.module.scss';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -19,9 +20,12 @@ function Search() {
 
   const inputRef = useRef();
 
+  // khi user ngừng gõ 500ms thì giá trị debounce mới được update bằng giá trị searchValue
+  const debounced = useDebounce(searchValue, 700);
+
   useEffect(() => {
     // khi không có searchValue thì return luôn (phòng trường hợp người dùng chỉ nhập kí tự khoảng trắng)
-    if (!searchValue.trim()) {
+    if (!debounced.trim()) {
       setSearchResult([]);
       return;
     }
@@ -29,7 +33,7 @@ function Search() {
     setLoading(true);
 
     // công dung của encodeUIComponent: khi người dùng nhập một kí gây hiểu nhầm (vd: &, ?, =) thì sẽ mã hóa nó đi thành 1 kí tự hợp lệ trên url
-    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
       .then((res) => res.json())
       .then((res) => {
         setSearchResult(res.data);
@@ -38,7 +42,7 @@ function Search() {
       .catch(() => {
         setLoading(false);
       });
-  }, [searchValue]);
+  }, [debounced]);
 
   const handleClear = () => {
     setSearchValue('');
