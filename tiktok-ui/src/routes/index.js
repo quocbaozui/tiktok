@@ -12,7 +12,10 @@ import Search from '~/pages/Search';
 const publicRoutes = [
   { path: '/', component: Home },
   { path: '/following', component: Following },
-  { path: '/profile', component: Profile },
+  // @ là kí tự cố định được map khi trên trình duyệt có cái path @
+  // còn sau dấu : nickname là route parameter (tham số định tuyến) nó có thể thay đổi không cố định
+  // khi có dấu @ là đều lọt vào trang profile
+  { path: '/:nickname', component: Profile },
   { path: '/upload', component: Upload, layout: HeaderOnly },
   { path: '/search', component: Search, layout: null },
 ];
