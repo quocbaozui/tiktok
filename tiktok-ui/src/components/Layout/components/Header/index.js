@@ -11,6 +11,7 @@ import {
   faRightToBracket,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
@@ -19,6 +20,8 @@ import Menu from '~/components/Popper/Menu';
 import { UploadIcon, MessageIcon, GetCoinIcon, InboxIcon } from '~/components/Icons';
 import Image from '~/components/Images';
 import Search from '../Search/Search';
+import routesConfig from '~/config/routes';
+
 // giúp viết được className theo kiểu post-item
 const cx = classNames.bind(styles);
 
@@ -112,7 +115,9 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         {/* Logo tiktok */}
-        <img src={images.logo} alt="Logo" />
+        <Link to={routesConfig.home} className={cx('logo-link')}>
+          <img src={images.logo} alt="Logo" />
+        </Link>
         {/* Ô tìm kiếm  */}
         <Search />
         {/* Hành động */}

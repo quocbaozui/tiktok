@@ -1,3 +1,5 @@
+import routesConfig from '~/config/routes';
+
 // Layouts
 import { HeaderOnly } from '~/components/Layout';
 
@@ -10,14 +12,14 @@ import Search from '~/pages/Search';
 
 // public routes
 const publicRoutes = [
-  { path: '/', component: Home },
-  { path: '/following', component: Following },
+  { path: routesConfig.home, component: Home },
+  { path: routesConfig.following, component: Following },
   // @ là kí tự cố định được map khi trên trình duyệt có cái path @
   // còn sau dấu : nickname là route parameter (tham số định tuyến) nó có thể thay đổi không cố định
   // khi có dấu @ là đều lọt vào trang profile
-  { path: '/:nickname', component: Profile },
-  { path: '/upload', component: Upload, layout: HeaderOnly },
-  { path: '/search', component: Search, layout: null },
+  { path: routesConfig.prfile, component: Profile },
+  { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
+  { path: routesConfig.search, component: Search, layout: null },
 ];
 
 const privateRoutes = [];

@@ -9,7 +9,7 @@ import Header from './Header';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange }) {
+function Menu({ children, hideOnClick = false, items = [], onChange }) {
   // ban đầu render ra cái list item nhận ở props (là item = [])
   const [history, setHistory] = useState([{ data: items }]);
   // trang nhất sẽ luôn là phần tử cuối mảng
@@ -42,6 +42,7 @@ function Menu({ children, items = [], onChange }) {
       interactive
       delay={[0, 700]}
       placement="bottom-end"
+      hideOnClick={hideOnClick}
       render={(attrs) => (
         <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
           <PopperWrapper className={cx('menu-popper')}>
