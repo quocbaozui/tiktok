@@ -9,6 +9,7 @@ import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import styles from './Search.module.scss';
 import { useDebounce } from '~/hooks';
+import * as searchServices from '~/apiServices/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -30,18 +31,16 @@ function Search() {
       return;
     }
 
-    setLoading(true);
+    const fetchApi = async () => {
+      setLoading(true);
 
-    // công dung của encodeUIComponent: khi người dùng nhập một kí gây hiểu nhầm (vd: &, ?, =) thì sẽ mã hóa nó đi thành 1 kí tự hợp lệ trên url
-    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-      .then((res) => res.json())
-      .then((res) => {
-        setSearchResult(res.data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+      const result = await searchServices.search(debounced); // request Api
+      setSearchResult(result); // gán kết quả trả về cho searchResult
+
+      setLoading(false);
+    };
+
+    fetchApi();
   }, [debounced]);
 
   const handleClear = () => {
