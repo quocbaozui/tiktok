@@ -1,7 +1,7 @@
-import routesConfig from '~/config/routes';
+import config from '~/config';
 
 // Layouts
-import { HeaderOnly } from '~/components/Layout';
+import { HeaderOnly } from '~/layouts';
 
 // Pages
 import Home from '~/pages/Home';
@@ -12,14 +12,14 @@ import Search from '~/pages/Search';
 
 // public routes
 const publicRoutes = [
-  { path: routesConfig.home, component: Home },
-  { path: routesConfig.following, component: Following },
+  { path: config.routes.home, component: Home },
+  { path: config.routes.following, component: Following },
   // @ là kí tự cố định được map khi trên trình duyệt có cái path @
   // còn sau dấu : nickname là route parameter (tham số định tuyến) nó có thể thay đổi không cố định
   // khi có dấu @ là đều lọt vào trang profile
-  { path: routesConfig.prfile, component: Profile },
-  { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
-  { path: routesConfig.search, component: Search, layout: null },
+  { path: config.routes.profile, component: Profile },
+  { path: config.routes.upload, component: Upload, layout: HeaderOnly },
+  { path: config.routes.search, component: Search, layout: null },
 ];
 
 const privateRoutes = [];

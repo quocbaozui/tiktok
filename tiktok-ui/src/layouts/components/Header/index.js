@@ -20,7 +20,7 @@ import Menu from '~/components/Popper/Menu';
 import { UploadIcon, MessageIcon, GetCoinIcon, InboxIcon } from '~/components/Icons';
 import Image from '~/components/Images';
 import Search from '../Search/Search';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 
 // giúp viết được className theo kiểu post-item
 const cx = classNames.bind(styles);
@@ -115,7 +115,7 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         {/* Logo tiktok */}
-        <Link to={routesConfig.home} className={cx('logo-link')}>
+        <Link to={config.routes.home} className={cx('logo-link')}>
           <img src={images.logo} alt="Logo" />
         </Link>
         {/* Ô tìm kiếm  */}
