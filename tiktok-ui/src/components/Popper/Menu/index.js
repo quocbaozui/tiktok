@@ -6,10 +6,13 @@ import styles from './Menu.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, hideOnClick = false, items = [], onChange }) {
+const defaultFn = () => {};
+
+function Menu({ children, hideOnClick = false, items = [], onChange = defaultFn }) {
   // ban đầu render ra cái list item nhận ở props (là item = [])
   const [history, setHistory] = useState([{ data: items }]);
   // trang nhất sẽ luôn là phần tử cuối mảng
@@ -49,7 +52,7 @@ function Menu({ children, hideOnClick = false, items = [], onChange }) {
             {/* history.length > 1 có nghĩa là đang ở sub menu cấp 2 hoăc 3... */}
             {history.length > 1 && (
               <Header
-                title="Language"
+                title={current.title}
                 onBack={() => {
                   setHistory((prev) => prev.slice(0, history.length - 1));
                 }}
@@ -65,5 +68,12 @@ function Menu({ children, hideOnClick = false, items = [], onChange }) {
     </Tippy>
   );
 }
+
+Menu.propTypes = {
+  children: PropTypes.node.isRequired,
+  hideOnClick: PropTypes.bool,
+  items: PropTypes.array,
+  onChange: PropTypes.func,
+};
 
 export default Menu;
