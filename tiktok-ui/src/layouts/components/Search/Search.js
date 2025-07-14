@@ -16,17 +16,17 @@ const cx = classNames.bind(styles);
 function Search() {
   const [searchResult, setSearchResult] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-  const [showResult, setShowResult] = useState(true);
+  const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const inputRef = useRef();
 
   // khi user ngừng gõ 500ms thì giá trị debounce mới được update bằng giá trị searchValue
-  const debounced = useDebounce(searchValue, 700);
+  const debouncedValue = useDebounce(searchValue, 700);
 
   useEffect(() => {
     // khi không có searchValue thì return luôn (phòng trường hợp người dùng chỉ nhập kí tự khoảng trắng)
-    if (!debounced.trim()) {
+    if (!debouncedValue.trim()) {
       setSearchResult([]);
       return;
     }
@@ -34,14 +34,14 @@ function Search() {
     const fetchApi = async () => {
       setLoading(true);
 
-      const result = await searchServices.search(debounced); // request Api
+      const result = await searchServices.search(debouncedValue); // request Api
       setSearchResult(result); // gán kết quả trả về cho searchResult
 
       setLoading(false);
     };
 
     fetchApi();
-  }, [debounced]);
+  }, [debouncedValue]);
 
   const handleClear = () => {
     setSearchValue('');
