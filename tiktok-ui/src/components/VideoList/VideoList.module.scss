@@ -1,0 +1,24 @@
+/* Container cho danh sách video với scroll snap */
+.video-list {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory; /* Bắt buộc snap theo chiều dọc */
+  scroll-behavior: smooth; /* Smooth scrolling */
+  scrollbar-width: none; /* Ẩn scrollbar trên Firefox */
+  -ms-overflow-style: none; /* Ẩn scrollbar trên IE/Edge */
+
+  /* Ẩn scrollbar trên Webkit browsers */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Mỗi video item chiếm full viewport height */
+.video-item {
+  height: 100vh;
+  scroll-snap-align: start; /* Snap tại đầu mỗi video */
+  scroll-snap-stop: always; /* Bắt buộc dừng tại mỗi video */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

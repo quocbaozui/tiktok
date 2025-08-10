@@ -1,0 +1,82 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video {
+  width: 350px;
+  height: 600px;
+}
+
+.video-content {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transform: translateY(-20px);
+}
+
+.action-bar {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 70px;
+}
+
+.action-bar .wrapper-btn {
+  margin-left: 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(22, 24, 35, 0.06);
+}
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.plus {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: #fe2c55;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.count {
+  font-family: TikTokFont;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.heart-icon.liked {
+  transition: color 0.2s ease;
+  color: #fe2c55;
+}
