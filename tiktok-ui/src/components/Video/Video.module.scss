@@ -6,7 +6,8 @@
 
 .video {
   width: 350px;
-  height: 600px;
+  height: calc(100vh - 60px); // trừ đi chiều của header
+  max-height: 600px;
 }
 
 .video-content {
@@ -38,11 +39,22 @@
   height: 48px;
   border-radius: 50%;
   background-color: rgba(22, 24, 35, 0.06);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.1);
+    transform: scale(1.05);
+  }
+
+  &.active {
+    background-color: rgba(22, 24, 35, 0.15);
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+  }
 }
 
 .avatar-container {
   position: relative;
-  display: inline-block;
 }
 
 .avatar {
@@ -56,17 +68,17 @@
   bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid white;
-  background-color: #fe2c55;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 1px solid white;
+  background-color: #fe2c55;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
   cursor: pointer;
 }
 

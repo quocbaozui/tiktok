@@ -217,6 +217,34 @@ export const HeartIcon = ({ width = '2.4rem', height = '2.4rem', className }) =>
   </svg>
 );
 
+export const SolidHeartIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+  <svg
+    fill="currentColor"
+    fontSize="24"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className={cx(className)}
+    width={width}
+    height={height}
+  >
+    <path d="M24 12.62c3.91-4.08 9.84-4.1 13.6-.42a9.48 9.48 0 0 1 0 13.63L25.06 38.07a1.5 1.5 0 0 1-2.1 0L10.4 25.83a9.48 9.48 0 0 1 0-13.63c3.77-3.68 9.7-3.66 13.61.42Zm-1.9 2.36c-2.8-3.2-6.99-3.2-9.61-.63a6.48 6.48 0 0 0 0 9.33L24 34.91l11.51-11.23a6.48 6.48 0 0 0 0-9.33c-2.62-2.56-6.8-2.56-9.6.63l-.05.05-.81.8a1.5 1.5 0 0 1-2.1 0l-.81-.8-.04-.05Z"></path>
+  </svg>
+);
+
+export const OutlineHeartIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+  <svg
+    fill="currentColor"
+    fontSize="24"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className={cx(className)}
+    width={width}
+    height={height}
+  >
+    <path d="M10.4 12.2c3.76-3.68 9.69-3.66 13.6.42 3.91-4.08 9.84-4.1 13.6-.42a9.48 9.48 0 0 1 0 13.63L25.06 38.07a1.5 1.5 0 0 1-2.1 0L10.4 25.83a9.48 9.48 0 0 1 0-13.63Z"></path>
+  </svg>
+);
+
 export const CommentIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -256,14 +284,7 @@ export const FavoriteIcon = ({ width = '2.4rem', height = '2.4rem', className })
 );
 
 export const ShareIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
-    id="pc-share-078b3fae"
-    className={cx(className)}
-    width={width}
-    height={height}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className={cx(className)} width={width} height={height}>
     <path
       fill="currentColor"
       fillRule="evenodd"
@@ -283,6 +304,96 @@ export const ShareIcon = ({ width = '2.4rem', height = '2.4rem', className }) =>
       d="M10.937 6.23v7.297s-6.683-.942-8.777 2.246C.146 18.839.331 12.309 3.363 9.057s7.574-2.827 7.574-2.827"
       clipRule="evenodd"
       opacity=".09"
+    ></path>
+  </svg>
+);
+
+export const CancelIcon = ({ width = '1.6rem', height = '1.6rem', className }) => (
+  <svg
+    fill="currentColor"
+    color="inherit"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className={cx(className)}
+    width={width}
+    height={height}
+  >
+    <path d="M38.7 12.12a1 1 0 0 0 0-1.41l-1.4-1.42a1 1 0 0 0-1.42 0L24 21.17 12.12 9.3a1 1 0 0 0-1.41 0l-1.42 1.42a1 1 0 0 0 0 1.41L21.17 24 9.3 35.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0L24 26.83 35.88 38.7a1 1 0 0 0 1.41 0l1.42-1.42a1 1 0 0 0 0-1.41L26.83 24 38.7 12.12Z"></path>
+  </svg>
+);
+
+export const FlagIcon = ({ width = '1.9rem', height = '1.9rem', className }) => (
+  <svg
+    fill="currentColor"
+    color="inherit"
+    fontSize="inherit"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className={cx(className)}
+    width={width}
+    height={height}
+  >
+    <path d="M9 9.31v17.75c5.27-1.73 11.45-2.05 16.16 1.31 4.03 2.88 9.52 2.01 13.84.32V10.94c-5.27 1.73-11.45 2.05-16.16-1.31-4-2.86-9.53-2.01-13.84-.32ZM43 8v22a2 2 0 0 1-1.1 1.79c-5.83 2.9-13.5 3.82-19.06-.16C18.8 28.75 13.32 29.6 9 31.3V44a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8c0-.75.44-1.45 1.1-1.79 5.75-2.87 13.62-3.73 19.06.16 4.37 3.13 10.43 2.04 14.95-.16C41.4 5.56 43 6.54 43 8Z"></path>
+  </svg>
+);
+
+export const DownArrowIcon = ({ width = '1.3rem', height = '1.3rem', className }) => (
+  <svg
+    fill="currentColor"
+    fontSize="13"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className={cx(className)}
+    width={width}
+    height={height}
+  >
+    <path d="m24 27.76 13.17-13.17a1 1 0 0 1 1.42 0l2.82 2.82a1 1 0 0 1 0 1.42L25.06 35.18a1.5 1.5 0 0 1-2.12 0L6.59 18.83a1 1 0 0 1 0-1.42L9.4 14.6a1 1 0 0 1 1.42 0L24 27.76Z"></path>
+  </svg>
+);
+
+export const UpArrowIcon = ({ width = '1.3rem', height = '1.3rem', className }) => (
+  <svg
+    fill="currentColor"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className={cx(className)}
+    width={width}
+    height={height}
+  >
+    <path d="m24 20.24 13.17 13.17a1 1 0 0 0 1.42 0l2.82-2.82a1 1 0 0 0 0-1.42L25.06 12.82a1.5 1.5 0 0 0-2.12 0L6.59 29.17a1 1 0 0 0 0 1.42L9.4 33.4a1 1 0 0 0 1.42 0L24 20.24Z"></path>
+  </svg>
+);
+
+export const AtIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+  <svg
+    fill="currentColor"
+    fontSize="inherit"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className={cx(className)}
+    width={width}
+    height={height}
+  >
+    <path d="M24.28 44.54c-4.32 0-8.1-.87-11.33-2.6a18.05 18.05 0 0 1-7.49-7.2A21.94 21.94 0 0 1 2.87 23.9c0-4.04.87-7.57 2.6-10.61a18.21 18.21 0 0 1 7.43-7.15c3.2-1.7 6.88-2.55 11.04-2.55 4.04 0 7.59.77 10.66 2.3 3.1 1.51 5.5 3.67 7.2 6.49a18.19 18.19 0 0 1 2.6 9.79c0 3.52-.82 6.4-2.46 8.64-1.63 2.2-3.93 3.31-6.9 3.31-1.86 0-3.34-.4-4.42-1.2a4.6 4.6 0 0 1-1.73-3.7l.67.3a6.42 6.42 0 0 1-2.64 3.4 8.28 8.28 0 0 1-4.56 1.2 8.52 8.52 0 0 1-7.97-4.75 11.24 11.24 0 0 1-1.15-5.19c0-1.95.37-3.66 1.1-5.13a8.52 8.52 0 0 1 7.92-4.75c1.8 0 3.3.41 4.52 1.24 1.24.8 2.1 1.94 2.54 3.41l-.67.82v-4.04a1 1 0 0 1 1-1h2.27a1 1 0 0 1 1 1v12.05c0 .87.22 1.5.67 1.92.48.39 1.12.58 1.92.58 1.38 0 2.45-.75 3.22-2.26.8-1.53 1.2-3.44 1.2-5.7 0-3.05-.67-5.69-2.02-7.93a12.98 12.98 0 0 0-5.52-5.13 17.94 17.94 0 0 0-8.3-1.83c-3.3 0-6.23.69-8.79 2.07a14.82 14.82 0 0 0-5.9 5.76 17.02 17.02 0 0 0-2.11 8.59c0 3.39.7 6.35 2.11 8.88 1.4 2.5 3.4 4.41 6 5.76a19.66 19.66 0 0 0 9.17 2.01h10.09a1 1 0 0 1 1 1v2.04a1 1 0 0 1-1 1H24.28Zm-1-14.12c1.72 0 3.08-.56 4.07-1.68 1.03-1.12 1.54-2.64 1.54-4.56 0-1.92-.51-3.44-1.54-4.56a5.17 5.17 0 0 0-4.08-1.68c-1.7 0-3.05.56-4.08 1.68-.99 1.12-1.49 2.64-1.49 4.56 0 1.92.5 3.44 1.5 4.56a5.26 5.26 0 0 0 4.07 1.68Z"></path>
+  </svg>
+);
+
+export const EmojiIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+  <svg
+    fill="currentColor"
+    color="inherit"
+    fontSize="inherit"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className={cx(className)}
+    width={width}
+    height={height}
+  >
+    <path d="M17 23c1.66 0 3-1.8 3-4s-1.34-4-3-4-3 1.8-3 4 1.34 4 3 4ZM34 19c0 2.2-1.34 4-3 4s-3-1.8-3-4 1.34-4 3-4 3 1.8 3 4ZM16.32 28.6c-.07-.44.34-.8.79-.73 6.39 1.13 7.39 1.13 13.78 0 .45-.06.86.29.79.74A8.11 8.11 0 0 1 24 35a8.11 8.11 0 0 1-7.68-6.4Z"></path>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M24 2a22 22 0 1 0 0 44 22 22 0 0 0 0-44ZM6 24a18 18 0 1 1 36 0 18 18 0 0 1-36 0Z"
     ></path>
   </svg>
 );

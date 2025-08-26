@@ -1,15 +1,18 @@
 import classNames from 'classnames/bind';
 
+import { useState } from 'react';
+
 import styles from './Video.module.scss';
 import Button from '../Button';
 import { HeartIcon, CommentIcon, FavoriteIcon, ShareIcon } from '../Icons';
 import Image from '../Images';
-import { useState } from 'react';
+import Comment from '../Comment';
 
 const cx = classNames.bind(styles);
 
 function Video({ data }) {
   const [isLiked, setIsLiked] = useState(false);
+  const [showComment, setShowComment] = useState(false);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
@@ -33,8 +36,8 @@ function Video({ data }) {
           </span>
           <strong className={cx('count')}>{data.likes}</strong>
         </Button>
-        <Button className={cx('wrapper-btn')}>
-          <span className={cx('icon')}>
+        <Button className={cx('wrapper-btn')} onClick={() => setShowComment(!showComment)}>
+          <span className={cx('icon', { active: showComment })}>
             <CommentIcon />
           </span>
           <strong className={cx('count')}>{data.comments}</strong>
@@ -62,6 +65,7 @@ function Video({ data }) {
           </div>
         </Button>
       </div>
+      {showComment && <Comment />}
     </div>
   );
 }
