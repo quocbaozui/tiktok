@@ -1,14 +1,12 @@
 // comment-content
 .comment {
-  width: 384px;
-  height: 100vh;
-  padding: 12px;
-  position: sticky;
-  top: 0;
-  bottom: 0;
-  animation: slideIn 0.3s ease-out;
+  position: relative;
   display: flex;
   flex-direction: column;
+  width: 384px;
+  height: calc(100vh - 30px);
+  padding: 12px;
+  animation: slideIn 0.3s ease-out;
 
   &.closing {
     animation: slideOut 0.3s ease-in forwards;
@@ -65,19 +63,26 @@
 }
 
 .comment-list {
-  flex: 1;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  padding-bottom: 130px; /* Thêm padding để tránh bị comment-bar che */
 }
 
 // commentItem
 .comment-detail {
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 }
 
 .comment-header {
   display: flex;
   align-items: center;
+  gap: 12px;
 
   &:hover .more-btn {
     opacity: 1;
@@ -102,7 +107,6 @@
 }
 
 .content {
-  margin-left: 10px;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -213,6 +217,7 @@
   display: flex;
   align-items: center;
   margin-top: 10px;
+  gap: 12px;
 
   &:hover .more-btn {
     opacity: 1;
@@ -259,14 +264,13 @@
 
 // comment-bar
 .comment-bar {
-  position: sticky;
-  bottom: 65px;
+  position: absolute;
+  bottom: 40px;
   left: 0;
   right: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: 12px;
   gap: 8px;
   background-color: #fff;
@@ -302,11 +306,60 @@
   }
 
   &:focus-within {
-    border-color: rgba(19, 20, 27, 0.12);
+    border-color: rgba(27, 25, 19, 0.12);
   }
 
   .icon {
-    margin-left: 8px;
     cursor: pointer;
   }
+
+  .icon-tippy {
+    font-size: 14px;
+    width: 240px;
+    color: var(--white);
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .icon-tippy1 {
+    font-size: 14px;
+    width: 160px;
+    color: var(--white);
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 4px;
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.14);
+    }
+  }
+}
+
+.post-comment {
+  flex: 0 0 48px;
+  text-align: right;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.34);
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.post-comment.active {
+  color: var(--primary);
 }
