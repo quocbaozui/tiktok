@@ -8,7 +8,7 @@ import ReplyItem from './ReplyItem';
 
 const cx = classNames.bind(styles);
 
-function CommentItem({ className, data, replies = [] }) {
+function CommentItem({ className, data, replies = [], onAddComment }) {
   const [report, setReport] = useState(false);
   const [showReplies, setShowReplies] = useState(false);
 
@@ -19,7 +19,7 @@ function CommentItem({ className, data, replies = [] }) {
   return (
     <div className={cx('comment-detail', className)}>
       <div className={cx('comment-header')}>
-        <CommentContent data={data} report={report} onReport={setReport} />
+        <CommentContent data={data} report={report} onReport={setReport} onAddComment={onAddComment} />
       </div>
 
       {/* replies */}
@@ -29,7 +29,7 @@ function CommentItem({ className, data, replies = [] }) {
             {showReplies ? (
               <div className={cx('view-more-replies-unhide')}>
                 {replies.map((reply, id) => (
-                  <ReplyItem key={id} data={reply} />
+                  <ReplyItem key={id} data={reply} parentId={data.id} onAddComment={onAddComment} />
                 ))}
                 <div className={cx('view-more-replies')}>
                   <div className={cx('more-replies-avatar-space')}></div>

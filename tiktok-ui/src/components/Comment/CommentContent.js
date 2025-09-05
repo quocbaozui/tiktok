@@ -1,19 +1,28 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsis, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+
 import { FlagIcon, OutlineHeartIcon, SolidHeartIcon } from '../Icons';
 import Image from '../Images';
 import styles from './Comment.module.scss';
-import { useState } from 'react';
+import CommentBar from './CommentBar';
 
 const cx = classNames.bind(styles);
 
-function CommentContent({ data, report, onReport }) {
+function CommentContent({ data, report, onReport, onAddComment }) {
+  // quản lý trạng thái của action like
   const [liked, setLiked] = useState(false);
+  // quản lý hiển thị reply
+  const [showReply, setShowReply] = useState(false);
 
   const handleLike = () => {
     setLiked(!liked);
+  };
+
+  const handleReply = () => {
+    setShowReply(!showReply);
   };
 
   return (
@@ -49,13 +58,33 @@ function CommentContent({ data, report, onReport }) {
         <div className={cx('post')}>
           <div className={cx('comment-meta')}>
             <div>{data.time}</div>
-            <div className={cx('comment-reply')}>Trả lời</div>
+            <div className={cx('comment-reply')} onClick={handleReply}>
+              Trả lời
+            </div>
           </div>
           <div className={cx('comment-action')} onClick={handleLike}>
             {liked ? <OutlineHeartIcon className={cx('heart', { liked: liked })} /> : <SolidHeartIcon />}
             <span>{data.likes + (liked ? 1 : 0)}</span>
           </div>
         </div>
+        {showReply && (
+          <div className={cx('reply-section')}>
+            <CommentBar
+              className={cx('comment-bar-reply')}
+              onAddComment={(newComment) => {
+                const replyComment = {
+                  ...newComment, // Spread tất cả thông tin từ comment mới
+                  parentId: data.id, // ID của comment gốc
+                  // Thêm các thông tin cần thiết cho reply
+                  avatar: 'https://example.com/avatar.jpg', // Thay bằng avatar thật
+                  nickname: 'User', // Thay bằng nickname thật
+                };
+                onAddComment(replyComment); // Gửi reply lên component cha
+                setShowReply(false); // Ẩn reply box sau khi reply
+              }}
+            />
+          </div>
+        )}
       </div>
     </>
   );

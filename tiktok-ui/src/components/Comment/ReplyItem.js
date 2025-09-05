@@ -6,12 +6,25 @@ import CommentContent from './CommentContent';
 
 const cx = classNames.bind(styles);
 
-function ReplyItem({ data }) {
+function ReplyItem({ data, parentId, onAddComment }) {
   const [replyReport, setReplyReport] = useState(false);
 
   return (
     <div className={cx('reply-item')}>
-      <CommentContent data={data} report={replyReport} onReport={setReplyReport} />
+      <CommentContent
+        data={data}
+        report={replyReport}
+        onReport={setReplyReport}
+        onAddComment={(newComment) => {
+          const replyComment = {
+            ...newComment,
+            parentId: parentId, // Comment gốc
+            avatar: 'https://example.com/avatar.jpg',
+            nickname: 'User AAA',
+          };
+          onAddComment(replyComment); // truyền lên component cha
+        }}
+      />
     </div>
   );
 }
